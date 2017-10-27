@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}  
+<a href= '/post'>more posts less tears</a> 
+<h1>Blogz make me cry</h1>
+
+
+    <hr />
+
+    {% if entry_titles |length == 0 %}
+    <p>No posts yet just tears</p>
+    {% else %}
+
+        <ul>
+            {% for entry in entry_titles %}
+            <li>
+                <a href= '/view_post?id={{entry.id}}'>{{entry.title}}</a>
+                <br>
+                {{entry.body}}
+
+            </li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+    <hr />
+
+    <!--ul>
+        {% for task in completed_tasks %}
+        <li>{{task.name}}</li>
+        {% endfor %}
+    </ul-->
+
+{% endblock %}
